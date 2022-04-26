@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!--
+
+    Copyright (c) 2022 ndgwandji.it. All rights reserved.
+ 
+    You may not modify, use, reproduce, or distribute this software except in
+    compliance with  the terms of the License at:
+    https://ndgwandji.it/opensources/thedoor/LICENSE.txt
+
+-->
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+    <h:head>
+    </h:head>
+
+    <h:body>
+        <h:outputStylesheet name="css/styles.css" target="head"/>
+        <div id="head">
+            <div>
+                <h2>TheDoor Nature</h2>
+            </div>
+            <div id="nav">
+                
+            </div>
+        </div>
+        <div>
+            <h:form>
+                <div>
+                    <div>
+                        <h:outputLabel value="#{bundle.Sex}" for="sex" />
+                        <h:selectOneMenu id="sex" required="true" value="registerBean.sex">
+                            <f:selectItem itemValue="0" itemLabel="#{bundle.Male}" />
+                            <f:selectItem itemValue="1" itemLabel="#{bundle.Female}" />
+                        </h:selectOneMenu>
+                    </div>
+                    <div>
+                        <h:outputLabel value="#{bundle.FirstName}" for="firstname" />
+                        <h:inputText id="firstname" value="#{registerBean.firstName}" required="true">
+                            <f:passThroughAttribute name="placeholder" value="#{bundle.ExFirstName}" />
+                        </h:inputText>
+                    </div>
+                    <div>
+                        <h:outputLabel value="#{bundle.LastName}" for="lastname" />
+                        <h:inputText id="lastname" value="#{registerBean.lastName}" required="true">
+                            <f:passThroughAttribute name="placeholder" value="#{bundle.ExLastName}" />
+                        </h:inputText>
+                    </div>
+                    <div>
+                        <h:outputLabel value="#{bundle.Birthdate}" for="birthdate" />
+                        <h:inputText id="birthdate" value="#{registerBean.birthDate}" required="true">
+                            <f:passThroughAttribute name="type" value="date" />
+                            <f:passThroughAttribute name="placeholder" value="#{bundle.DateFormat}" />
+                        </h:inputText>
+                    </div>
+                    <div>
+                        <h:outputLabel value="#{bundle.Picture}" for="picture" />
+                        <h:inputText id="picture" value="#{registerBean.picture}">
+                            <f:passThroughAttribute name="type" value="file" />
+                        </h:inputText>
+                    </div>
+                    <div>
+                        <h:outputLabel value="#{bundle.MobilePhone}" for="mobilephone" />
+                        <h:inputText id="mobilephone" value="#{registerBean.mobilePhone}" required="true" />
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <h:outputLabel value="#{bundle.Email}" for="email" />
+                        <h:inputText id="email" value="#{registerBean.email}" required="true">
+                            <f:passThroughAttribute name="placeholder" value="#{bundle.ExEmail}" />
+                        </h:inputText>
+                    </div>
+                    <div>
+                        <h:outputLabel value="#{bundle.Password}" for="password" />
+                        <h:inputText id="password" value="#{registerBean.password}" required="true" />
+                    </div>
+                    <div>
+                        <h:inputText id="password2" value="#{registerBean.password2}" required="true" />
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <h:commandButton value="#{bundle.Cancel}" action="#{registerBean.cancelApplication}" />
+                    </div>
+                    <div>
+                        <h:commandButton value="#{bundle.Apply}" action="#{registerBean.applyForRegistration}" />
+                    </div>
+                </div>
+            </h:form>
+        </div>
+    </h:body>
+
+</html>

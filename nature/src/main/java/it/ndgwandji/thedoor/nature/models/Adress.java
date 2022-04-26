@@ -1,5 +1,9 @@
 /**
- * 
+ * Copyright (c) 2022 ndgwandji.it. All rights reserved.
+ *
+ * You may not modify, use, reproduce, or distribute this software except in
+ * compliance with  the terms of the License at:
+ * https://ndgwandji.it/opensources/thedoor/LICENSE.txt
  */
 package it.ndgwandji.thedoor.nature.models;
 

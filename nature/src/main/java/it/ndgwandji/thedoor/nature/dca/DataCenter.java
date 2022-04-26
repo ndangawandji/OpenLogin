@@ -63,6 +63,16 @@ public class DataCenter {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
+	}
+
+	/**
+     * Set the value of connection
+     *
+     * @param connection new value of connection
+     */
+	public static OracleConnection getConnection(){
+		return connection;
 	}
 	
 	/**
@@ -71,7 +81,7 @@ public class DataCenter {
 	 */
 	private Ini.Section loadConfig() throws IOException, URISyntaxException {
 		
-		File file = new File("C:\\Users\\ndang\\eclipse-workspaces\\exodus\\Transpay\\src\\main\\resources\\META-INF\\config.ini");
+		File file = new File("C:\\Users\\ndang\\Workspaces\\sources\\ndgwandji.it\\TheDoor\\nature\\src\\main\\resources\\META-INF\\config.ini");
 		FileReader fileReader = new FileReader(file);
 		Ini ini = new Ini();
 		ini.load(fileReader);

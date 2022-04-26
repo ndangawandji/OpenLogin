@@ -1,5 +1,9 @@
 /**
- * 
+ * Copyright (c) 2022 ndgwandji.it. All rights reserved.
+ *
+ * You may not modify, use, reproduce, or distribute this software except in
+ * compliance with  the terms of the License at:
+ * https://ndgwandji.it/opensources/thedoor/LICENSE.txt
  */
 package it.ndgwandji.thedoor.nature.dao;
 
@@ -10,6 +14,7 @@ import java.sql.Statement;
 import java.util.List;
 import java.util.Properties;
 
+import it.ndgwandji.thedoor.nature.dca.DataCenter;
 import oracle.jdbc.pool.OracleDataSource;
 import oracle.jdbc.OracleConnection;
 import java.sql.DatabaseMetaData;
@@ -21,20 +26,18 @@ import java.sql.DatabaseMetaData;
 public abstract class AbstractGenericDAO<T, ID> {
 	
 	private Class<T> datasClass;
-	private Statement statement;
-	private OracleConnection connection;
+	private static OracleConnection connection;
 
 	/**
 	 * 
 	 */
-	public AbstractGenericDAO(Statement statement, OracleConnection connection) {
+	public AbstractGenericDAO() {
 		// TODO Auto-generated constructor stub
-		this.statement = statement;
-		this.connection = connection;
+		connection = new DataCenter().getConnection();
 	}
 	
 	
-	public abstract int create(T object);
+	public abstract boolean create(T object);
 	
 	public abstract int deleteById(ID id);
 	
@@ -42,26 +45,10 @@ public abstract class AbstractGenericDAO<T, ID> {
 	
 	public abstract T readById(ID id);
 
-
-	/**
-	 * @return the statement
-	 */
-	public Statement getStatement() {
-		return statement;
-	}
-
-
-	/**
-	 * @param statement the statement to set
-	 */
-	public void setStatement(Statement statement) {
-		this.statement = statement;
-	}
-
 	/**
 	 * @return the connection
 	 */
-	public OracleConnection getConnection() {
+	public static OracleConnection getConnection() {
 		return connection;
 	}
 

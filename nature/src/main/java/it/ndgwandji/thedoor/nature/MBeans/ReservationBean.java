@@ -5,7 +5,7 @@
  * compliance with  the terms of the License at:
  * https://github.com/javaee/tutorial-examples/LICENSE.txt
  */
-package it.ndgwandji.thedoor.nature.MBeans;
+package it.ndgwandji.thedoor.nature.mbeans;
 
 import java.io.Serializable;
 import java.util.HashMap;

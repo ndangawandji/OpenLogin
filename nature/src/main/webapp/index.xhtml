@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!--
 
-    Copyright (c) 2014 Oracle and/or its affiliates. All rights reserved.
-
+    Copyright (c) 2022 ndgwandji.it. All rights reserved.
+ 
     You may not modify, use, reproduce, or distribute this software except in
     compliance with  the terms of the License at:
-    https://github.com/javaee/tutorial-examples/LICENSE.txt
+    https://ndgwandji.it/opensources/thedoor/LICENSE.txt
 
 -->
 <!DOCTYPE html>
@@ -19,17 +19,27 @@
     <h:head>
     </h:head>
     <h:body>
-        <h:outputStylesheet name="css/stylesheet.css" target="head"/>
-
-        <h:form>
+        <h:outputStylesheet name="css/styles.css" target="head"/>
+        <div id="head">
             <div>
                 <h2>TheDoor Nature</h2>
-                <h:commandButton value="#{bundle.Subscribe}"></h:commandButton>
             </div>
-            
+            <div id="nav">
+                <h:form>
+                    <div>
+                        <div>
+                            <h:commandButton value="#{bundle.Register}" action="#{accountBean.makeAnApplication}" />
+                        </div>
+                        <div>
+                            <h:commandButton value="#{bundle.LogIn}" action="#" />
+                        </div>
+                    </div>
+                </h:form>
+            </div>
+        </div>
+        <div>
 
-        </h:form>
-
+        </div>
         
     </h:body>
 </html>

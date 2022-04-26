@@ -1,11 +1,19 @@
 /**
- * 
+ * Copyright (c) 2022 ndgwandji.it. All rights reserved.
+ *
+ * You may not modify, use, reproduce, or distribute this software except in
+ * compliance with  the terms of the License at:
+ * https://ndgwandji.it/opensources/thedoor/LICENSE.txt
  */
+
+
 package it.ndgwandji.thedoor.nature.models;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.Serializable;
 import java.math.BigInteger;
-import java.sql.Date;
+import java.util.Calendar;
 
 /**
  * @author Ndanga Wandji
@@ -23,6 +31,8 @@ public class Account implements Serializable {
 	private String electronicMail;
 	
 	private String password;
+
+	private String role;
 	
 	private PersInfos accountInfos;
 
@@ -30,25 +40,49 @@ public class Account implements Serializable {
 	 * 
 	 */
 	public Account() {
-		// TODO Auto-generated constructor stub
+
+	}
+
+	/**
+	 * @param electronicMail
+	 * @param password
+	 * @param role
+	 */
+	public Account(String electronicMail, String password, String role) {
+		super();
+		this.electronicMail = electronicMail;
+		this.password = password;
+		this.role = role;
+	}
+
+	/**
+	 * @param electronicMail
+	 * @param password
+	 */
+	public Account(String electronicMail, String password) {
+		super();
+		this.electronicMail = electronicMail;
+		this.password = password;
 	}
 	
 	/**
 	 * @param accountID
 	 * @param electronicMail
 	 * @param password
+	 * @param role
 	 * @param accountInfos
 	 */
-	public Account(BigInteger accountID, String electronicMail, String password, PersInfos accountInfos) {
+	public Account(BigInteger accountID, String electronicMail, String password, String role, PersInfos accountInfos) {
 		super();
 		AccountID = accountID;
 		this.electronicMail = electronicMail;
 		this.password = password;
+		this.role = role;
 		this.accountInfos = accountInfos;
 	}
 
-	public PersInfos initializeInfos(String firstName, String lastName, Byte picture, Date birthdate,
-			int sex, String mobilePhone) {
+	public PersInfos initializeInfos(String firstName, String lastName, FileInputStream picture, Calendar birthdate,
+			String sex, String mobilePhone) {
 		
 		return new PersInfos(firstName, lastName, picture, birthdate, sex, mobilePhone);
 	}
@@ -94,6 +128,20 @@ public class Account implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	/**
+	 * @return the role
+	 */
+	public String getRole() {
+		return role;
+	}
+
+	/**
+	 * @param role the password to set
+	 */
+	public void setRole(String role) {
+		this.role = role;
+	}
 	
 	/**
 	 * @return the accountInfos
@@ -110,7 +158,7 @@ public class Account implements Serializable {
 	}
 
 	
-	private class PersInfos implements Serializable{
+	public class PersInfos implements Serializable{
 
 		/**
 		 * 
@@ -123,11 +171,11 @@ public class Account implements Serializable {
 		
 		private String lastName;
 		
-		private Byte picture;
+		private FileInputStream picture;
 		
-		private Date birthdate;
+		private Calendar birthdate;
 		
-		private int sex;
+		private String sex;
 		
 		private String mobilePhone;
 
@@ -147,13 +195,97 @@ public class Account implements Serializable {
 		 * @param sex
 		 * @param mobilePhone
 		 */
-		private PersInfos(String firstName, String lastName, Byte picture, Date birthdate, int sex, String mobilePhone) {
+		private PersInfos(String firstName, String lastName, FileInputStream picture, Calendar birthdate, String sex, String mobilePhone) {
 			super();
 			this.firstName = firstName;
 			this.lastName = lastName;
 			this.picture = picture;
 			this.birthdate = birthdate;
 			this.sex = sex;
+			this.mobilePhone = mobilePhone;
+		}
+
+		/**
+		 * @return the first name
+		 */
+		public String getFirstName() {
+			return firstName;
+		}
+
+		/**
+		 * @param firstName the first name to set
+		 */
+		public void setFirstName(String firstName) {
+			this.firstName = firstName;
+		}
+
+		/**
+		 * @return the last name
+		 */
+		public String getLastName() {
+			return lastName;
+		}
+
+		/**
+		 * @param lastName the last name to set
+		 */
+		public void setLastName(String lastName) {
+			this.lastName = lastName;
+		}
+
+		/**
+		 * @return the picture
+		 */
+		public FileInputStream getPicture() {
+			return picture;
+		}
+
+		/**
+		 * @param picture the picture to set
+		 */
+		public void setPicture(FileInputStream picture) {
+			this.picture = picture;
+		}
+
+		/**
+		 * @return the birth data
+		 */
+		public Calendar getBirthdate() {
+			return birthdate;
+		}
+
+		/**
+		 * @param birthdate the birth date to set
+		 */
+		public void setBirthdate(Calendar birthdate) {
+			this.birthdate = birthdate;
+		}
+
+		/**
+		 * @return the sex
+		 */
+		public String getSex() {
+			return sex;
+		}
+
+		/**
+		 * @param sex the sex date to set
+		 */
+		public void setSex(String sex) {
+			this.sex = sex;
+		}
+
+		/**
+		 * @return the mobile phone
+		 */
+		public String getMobilePhone() {
+			return mobilePhone;
+		}
+
+		/**
+		 * @param mobilePhone the mobile phone date to set
+		 */
+		public void setMobilePhone(String mobilePhone) {
 			this.mobilePhone = mobilePhone;
 		}
 		

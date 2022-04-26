@@ -24,14 +24,19 @@
 
 package it.ndgwandji.thedoor.nature.dca;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.Properties;
 
+import it.ndgwandji.thedoor.nature.dao.AccountDAO;
+import it.ndgwandji.thedoor.nature.models.Account;
 import oracle.jdbc.pool.OracleDataSource;
 import oracle.jdbc.OracleConnection;
 import java.sql.DatabaseMetaData;
@@ -43,9 +48,9 @@ public class DataSourceSample {
   // For ATP and ADW - use the TNS Alias name along with the TNS_ADMIN when using 18.3 JDBC driver
   // final static String DB_URL="jdbc:oracle:thin:@wallet_dbname?TNS_ADMIN=/Users/test/wallet_dbname";
   // In case of windows, use the following URL 
-  final static String DB_URL="jdbc:oracle:thin:@dbopensm2018_high?TNS_ADMIN=C:\\Database\\Oracle\\Wallet_DBOpenSM2018";
-  final static String DB_USER = "TRANSPAY";
-  final static String DB_PASSWORD = "McrT20Tp18#db#";        
+  final static String DB_URL="jdbc:oracle:thin:@db202203071410_high?TNS_ADMIN=C:\\Users\\ndang\\Workspaces\\Oracle\\ndgwandji.it\\Wallet_DB202203071410";
+  final static String DB_USER = "ndanga";
+  final static String DB_PASSWORD = "jUGUZDzvCvZX6p3";        
   static OracleConnection connectionx;
 
  /*
@@ -83,7 +88,7 @@ public class DataSourceSample {
       connectionx = connection;
       System.out.println("Database Username is: " + connectionx.getUserName());
       System.out.println();
-      //printEmployees(connection);
+      printEmployees(connection);
     }   
   }
  /*
@@ -91,7 +96,8 @@ public class DataSourceSample {
   */
   public static void printEmployees(Connection connection) throws SQLException {
     // Statement and ResultSet are AutoCloseable and closed automatically. 
-    try (Statement statement = connection.createStatement()) {      
+    try (Statement statement = connection.createStatement()) { 
+      /* 
       try (ResultSet resultSet = statement
           .executeQuery("select first_name, last_name from employees")) {
         System.out.println("FIRST_NAME" + "  " + "LAST_NAME");
@@ -100,7 +106,11 @@ public class DataSourceSample {
           System.out.println(resultSet.getString(1) + " "
               + resultSet.getString(2) + " ");       
       }
-    }   
+      */
+      String sql = "insert into user_account values(C_ACCOUNT_ID.nextval, 'ndanga.wandji@outlook.fr', 'cedric', 'S')";
+      statement.executeUpdate(sql);
+    }
+    
   } 
 }
 

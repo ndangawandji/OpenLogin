@@ -1,0 +1,37 @@
+/**
+ * Copyright (c) 2022 ndgwandji.it. All rights reserved.
+ *
+ * You may not modify, use, reproduce, or distribute this software except in
+ * compliance with  the terms of the License at:
+ * https://ndgwandji.it/opensources/thedoor/LICENSE.txt
+ */
+
+ body {
+    background-color: #ffffff;
+    font-size: 14px;
+    font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    color: #000000;  
+    margin: 10px;
+}
+
+h2 {
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    border-bottom: 1px solid #AFAFAF; 
+    font-size:  18px;
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+    color: #D20005;
+}
+
+#head > div, #nav form > div > div{
+    display: inline-block;
+}
+
+#nav {
+    float: right;
+}
+
+.content{
+    
+}
